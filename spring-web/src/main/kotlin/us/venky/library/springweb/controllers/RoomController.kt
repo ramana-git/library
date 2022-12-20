@@ -12,7 +12,7 @@ class RoomController(private val service: RoomService){
         return service.get()
     }
     @GetMapping("search")
-    fun searchByZip(@RequestParam name: String): List<Room> {
+    fun search(@RequestParam name: String): List<Room> {
         return service.get(name)
     }
     @GetMapping("searchByBuilding")

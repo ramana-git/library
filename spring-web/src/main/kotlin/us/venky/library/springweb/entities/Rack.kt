@@ -6,7 +6,7 @@ import java.util.UUID
 @Entity(name="racks")
 data class Rack(
     @Id @GeneratedValue
-    val id:UUID?,
+    var id:UUID?,
     val name: String?,
     @ManyToOne
     val cabinet: Cabinet,
