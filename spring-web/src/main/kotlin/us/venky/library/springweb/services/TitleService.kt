@@ -21,8 +21,8 @@ class TitleService(private val repo: TitleRepository) {
         return repo.save(title)
     }
     fun update(id: UUID, title: Title): Title?{
-        val tit=get(id)
-        tit?.let {title.id=id;return repo.save(title)}
+        val ttl=get(id)
+        ttl?.let {title.id=id;return repo.save(title)}
         return null;
     }
     fun delete(id:UUID): Title? {

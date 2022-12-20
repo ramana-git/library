@@ -7,12 +7,12 @@ import java.util.UUID
 @Entity(name="books")
 data class Book (
     @Id @GeneratedValue
-    val id: UUID?,
+    var id: UUID?,
     @ManyToOne
     val title: Title,
     @ManyToOne
     val rack: Rack,
-    val checkOut: Date?,
+    var checkOut: Date?,
     @ManyToOne(fetch = FetchType.EAGER)
-    val member: Member?
+    var member: Member?
 )
