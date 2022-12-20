@@ -10,11 +10,14 @@ class RoomService(private val repo: RoomRepository) {
     fun get(): List<Room> {
         return repo.findAll()
     }
+    fun get(id: UUID): Room? {
+        return repo.findById(id).orElse(null)
+    }
     fun get(name: String): List<Room> {
         return repo.findByName(name)
     }
-    fun get(id: UUID): Room? {
-        return repo.findById(id).orElse(null)
+    fun getByBuilding(id: UUID): List<Room> {
+        return repo.findByBuilding(id);
     }
     fun create(building: Room): Room {
         building.id=null

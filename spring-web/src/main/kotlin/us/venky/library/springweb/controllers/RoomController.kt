@@ -15,6 +15,10 @@ class RoomController(private val service: RoomService){
     fun searchByZip(@RequestParam name: String): List<Room> {
         return service.get(name)
     }
+    @GetMapping("searchByBuilding")
+    fun searchByBuilding(@RequestParam id: UUID): List<Room> {
+        return service.getByBuilding(id)
+    }
     @PostMapping
     fun new(@RequestBody room: Room): Room {
         return service.create(room)

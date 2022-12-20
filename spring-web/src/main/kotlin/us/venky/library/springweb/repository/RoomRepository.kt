@@ -6,4 +6,5 @@ import java.util.UUID
 
 interface RoomRepository : JpaRepository<us.venky.library.springweb.entities.Room, UUID> {
     abstract fun findByName(name: String): List<Room>
+    abstract fun findByBuilding(id: UUID): List<Room>
 }
