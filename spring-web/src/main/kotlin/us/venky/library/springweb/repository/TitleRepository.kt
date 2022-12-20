@@ -4,4 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 import us.venky.library.springweb.entities.Title
 import java.util.UUID
 
-interface TitleRepository : JpaRepository<us.venky.library.springweb.entities.Title, UUID>
+interface TitleRepository : JpaRepository<us.venky.library.springweb.entities.Title, UUID> {
+    abstract fun findByIsbn(isbn: String): List<Title>
+}

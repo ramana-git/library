@@ -7,7 +7,7 @@ import java.util.UUID
 @Table(name="authors")
 data class Author(
     @Id @GeneratedValue
-    val id: UUID?,
+    var id: UUID?,
     val firstName: String,
     val lastName: String,
     val address: String?

@@ -9,15 +9,15 @@ import java.util.UUID
 @RestController @RequestMapping("library")
 class LibraryController(private val service: LibraryService){
     @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE,MediaType.TEXT_XML_VALUE])
-    fun employees(): List<Library> {
+    fun list(): List<Library> {
         return service.get()
     }
     @PostMapping
-    fun newDepartment(@RequestBody library: Library): Library {
+    fun new(@RequestBody library: Library): Library {
         return service.create(library)
     }
     @GetMapping("{id}")
-    fun department(@PathVariable id: UUID): Library? {
+    fun get(@PathVariable id: UUID): Library? {
         return service.get(id)
     }
     @PutMapping("{id}")

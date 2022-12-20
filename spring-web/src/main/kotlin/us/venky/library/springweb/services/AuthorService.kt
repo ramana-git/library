@@ -14,16 +14,17 @@ class AuthorService(private val repo: AuthorRepository) {
         return repo.findById(id).orElse(null)
     }
     fun create(author: Author): Author {
+        author.id=null
         return repo.save(author)
     }
     fun update(id: UUID, author: Author): Author?{
-        val emp=get(id)
-        emp?.let {repo.save(Author(id, author.firstName, author.lastName, author.address))}
-        return null;
+        val auth=get(id)
+        auth?.let {author.id=id;return repo.save(auth)}
+        return null
     }
     fun delete(id:UUID): Author? {
-        val employee=get(id)
-        employee?.let { repo.deleteById(id) }
-        return employee
+        val author=get(id)
+        author?.let { repo.deleteById(id) }
+        return author
     }
 }

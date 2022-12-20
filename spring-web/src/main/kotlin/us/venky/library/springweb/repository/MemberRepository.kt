@@ -4,4 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 import us.venky.library.springweb.entities.Member
 import java.util.UUID
 
-interface MemberRepository : JpaRepository<us.venky.library.springweb.entities.Member, UUID>
+interface MemberRepository : JpaRepository<us.venky.library.springweb.entities.Member, UUID> {
+    abstract fun findByLastName(lastName: String): List<Member>
+}

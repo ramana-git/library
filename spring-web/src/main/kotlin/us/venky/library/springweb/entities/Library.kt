@@ -7,7 +7,7 @@ import java.util.UUID
 @Table(name="libraries")
 data class Library (
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    val id: UUID?,
+    var id: UUID?,
     val name: String,
     val address: String?
 )

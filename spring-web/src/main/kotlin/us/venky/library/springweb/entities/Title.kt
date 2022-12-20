@@ -6,7 +6,7 @@ import java.util.UUID
 @Entity(name="titles")
 data class Title (
     @Id @GeneratedValue
-    val id: UUID?,
+    var id: UUID?,
     val title: String,
     val isbn: String,
     val isbn10: String?,

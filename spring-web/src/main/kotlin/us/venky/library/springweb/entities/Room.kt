@@ -8,6 +8,6 @@ data class Room(
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     val id:UUID?,
     val name: String,
-    @ManyToOne(fetch = FetchType.EAGER) @JoinTable(name="rooms_building")
+    @ManyToOne(fetch = FetchType.EAGER)
     val building: Building
 )

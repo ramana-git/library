@@ -8,12 +8,11 @@ import java.util.UUID
 @Table(name="members")
 data class Member(
     @Id @GeneratedValue
-    val id: UUID?,
+    var id: UUID?,
     val firstName: String,
     val lastName: String,
     val address: String,
     val email: String,
-    val joinDate: Date?,
-    val verified: Boolean?=false,
-    val active: Boolean?=false
+    var joinDate: Date?,
+    var verified: Boolean?=false,
 )

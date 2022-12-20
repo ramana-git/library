@@ -6,24 +6,25 @@ import us.venky.library.springweb.repository.LibraryRepository
 import java.util.*
 
 @Service
-class LibraryService(private val repo: us.venky.library.springweb.repository.LibraryRepository) {
-    fun get(): List<us.venky.library.springweb.entities.Library> {
+class LibraryService(private val repo: LibraryRepository) {
+    fun get(): List<Library> {
         return repo.findAll()
     }
-    fun get(id: UUID): us.venky.library.springweb.entities.Library? {
+    fun get(id: UUID): Library? {
         return repo.findById(id).orElse(null)
     }
-    fun create(library: us.venky.library.springweb.entities.Library): us.venky.library.springweb.entities.Library {
+    fun create(library: Library): Library {
+        library.id=null
         return repo.save(library)
     }
-    fun update(id: UUID, library: us.venky.library.springweb.entities.Library): us.venky.library.springweb.entities.Library?{
-        val dept=get(id)
-        dept?.let {return repo.save(us.venky.library.springweb.entities.Library(id, library.name, library.address))}
+    fun update(id: UUID, library: Library): Library?{
+        val lib=get(id)
+        lib?.let {lib.id=id;return repo.save(lib)}
         return null;
     }
-    fun delete(id:UUID): us.venky.library.springweb.entities.Library? {
-        val department=get(id)
-        department?.let { repo.deleteById(id) }
-        return department
+    fun delete(id:UUID): Library? {
+        val library=get(id)
+        library?.let { repo.deleteById(id) }
+        return library
     }
 }
