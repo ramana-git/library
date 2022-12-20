@@ -6,7 +6,7 @@ import java.util.UUID
 @Entity(name="buildings")
 data class Building(
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    val id:UUID?,
+    var id:UUID?,
     val name: String,
     val address: String,
     val city: String,

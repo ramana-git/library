@@ -5,7 +5,7 @@ import us.venky.library.springweb.entities.Member
 import us.venky.library.springweb.services.MemberService
 import java.util.UUID
 
-@RestController @RequestMapping("members")
+@RestController @RequestMapping("titles")
 class TitleController(private val service: MemberService){
     @GetMapping
     fun list(): List<Member> {

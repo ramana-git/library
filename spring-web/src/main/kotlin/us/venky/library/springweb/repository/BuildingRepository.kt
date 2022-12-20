@@ -4,4 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 import us.venky.library.springweb.entities.Building
 import java.util.UUID
 
-interface BuildingRepository : JpaRepository<us.venky.library.springweb.entities.Building, UUID>
+interface BuildingRepository : JpaRepository<us.venky.library.springweb.entities.Building, UUID> {
+    abstract fun findByZip(zip: String): List<Building>
+}
