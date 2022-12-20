@@ -1,0 +1,23 @@
+POST http://localhost:8080/employees HTTP/1.1
+Content-Type: application/json
+
+{
+   "name": "Ramana",
+   "address": "Address, City, St"
+}
+
+###
+GET http://localhost:8080/employees
+###
+GET http://localhost:8080/employees/b439961d-1415-4b70-bf37-b51904b1ba19
+###
+PUT http://localhost:8080/employees/b439961d-1415-4b70-bf37-b51904b1ba19
+Content-Type: application/json
+
+{
+  "name": "Ram",
+  "address": "Nob Hill, Plantation, FL"
+}
+
+###
+http://localhost:8080/api-docs2.yaml
