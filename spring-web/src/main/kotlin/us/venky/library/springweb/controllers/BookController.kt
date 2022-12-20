@@ -31,7 +31,7 @@ class BookController(private val service: BookService){
     fun delete(@PathVariable id: UUID): Book? {
         return service.delete(id)
     }
-    @GetMapping("{id}/member/{mid}")
+    @GetMapping("checkout/{id}/member/{mid}")
     fun checkout(@PathVariable id: UUID, @PathVariable mid: UUID): Book? {
         return service.checkout(id,mid)
     }
